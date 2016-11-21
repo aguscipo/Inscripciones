@@ -1,0 +1,28 @@
+<%= form_for @trabajo do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :titulo %>
+    <%= f.text_field :titulo, class: 'form-control', :required => true %>
+    </br>
+    <%= f.label :autor %>
+    <%= f.text_field :autor, class: 'form-control', :required => true %>
+    </br>
+    <%= f.label :autores_secundarios %>
+    <%= f.text_field :autores_secundarios, class: 'form-control' %>
+    </br>
+    <%= f.label :resumen %>
+    <%= f.text_area :resumen, class: 'form-control', :required => true%>
+    </br>
+    <%= f.label :tema %>
+    <%=f.select(:tema,[ "CLOUD", "WS", "BPM", "SOA" ],{}, { :class => 'form-control' }) %>
+    </br>
+    <%= f.label :correo %>
+    <%= f.email_field :correo, class: 'form-control', :required => true %>
+    </br>
+    <%= f.label :correo_gmail %>
+    <%= f.email_field :correo_gmail, class: 'form-control', :required => true %>
+    </br>
+    <%= f.label :tipo_presentacion %>
+    <%=f.select(:tipo_presentacion, [ "Poster", "Conferencia" ],{}, { :class => 'form-control' })%>
+    </br>
+    <%= f.submit yield(:button_text), class: "btn btn-lg btn-primary" %>
+<% end %>
